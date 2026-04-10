@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>光尘杯北美创业赛 2026 · 项目信息</title>
+<style>
+:root {
+  --deep:   #030d1f;
+  --b800:   #0a3280;
+  --b700:   #0d48b0;
+  --b600:   #1a6eff;
+  --b400:   #4dabf5;
+  --b300:   #64c8ff;
+  --b200:   #a8d8ff;
+  --cyan:   #00d4ff;
+  --white:  #ffffff;
+  --card:   #071630;
+  --border: rgba(26,110,255,.3);
+  --tm:     #e8f4ff;
+  --ts:     #7aadcc;
+  --td:     #4a7a9b;
+
+  /* Category accent colours */
+  --cat1-a: #1a6eff; --cat1-b: #00d4ff; /* AI Tools — blue/cyan */
+  --cat2-a: #0f7a5a; --cat2-b: #00e5a0; /* BioHealth — teal/green */
+  --cat3-a: #6b21a8; --cat3-b: #c084fc; /* FinTech — purple */
+  --cat4-a: #92400e; --cat4-b: #fbbf24; /* Lifestyle — amber */
+  --cat5-a: #991b1b; --cat5-b: #f87171; /* Art — rose */
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", sans-serif;
+  background: var(--deep);
+  background-image:
+    radial-gradient(ellipse 80% 35% at 50% 0%, rgba(13,72,176,.45) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 20% at 85% 60%, rgba(0,212,255,.06) 0%, transparent 60%);
+  color: var(--tm);
+  min-height: 100vh;
+}
+
+/* ── Header ── */
+header {
+  background: linear-gradient(135deg, #030d1f 0%, #082060 45%, #0d48b0 100%);
+  padding: 36px 48px 28px;
+  border-bottom: 1px solid rgba(0,212,255,.25);
+  box-shadow: 0 0 80px rgba(26,110,255,.18), 0 4px 24px rgba(0,0,0,.5);
+  position: relative; overflow: hidden;
+}
+header::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(110deg, transparent 35%, rgba(0,212,255,.05) 50%, transparent 65%);
+  pointer-events: none;
+}
+header::after {
+  content: "GUANGCHEN CUP";
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  font-size: 6rem; font-weight: 900;
+  color: rgba(255,255,255,.022);
+  letter-spacing: .12em; white-space: nowrap;
+  pointer-events: none; user-select: none;
+}
+.header-inner { position: relative; }
+.header-eyebrow { font-size: .74rem; font-weight: 700; letter-spacing: .14em; color: var(--cyan); text-transform: uppercase; margin-bottom: 8px; }
+header h1 { font-size: 2rem; font-weight: 900; text-shadow: 0 0 32px rgba(0,212,255,.4); }
+header h1 span { color: var(--cyan); }
+header p { margin-top: 5px; font-size: .88rem; color: var(--b200); }
+.pills { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
+.pill { background: rgba(0,212,255,.1); border: 1px solid rgba(0,212,255,.3); border-radius: 20px; padding: 3px 12px; font-size: .76rem; color: var(--cyan); font-weight: 600; }
+
+/* ── TOC ── */
+.toc {
+  background: rgba(6,20,64,.93); backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 8px 48px;
+  display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
+  position: sticky; top: 0; z-index: 50;
+  box-shadow: 0 4px 20px rgba(0,0,0,.35);
+}
+.toc-label { font-size: .7rem; color: var(--td); font-weight: 700; letter-spacing: .06em; text-transform: uppercase; margin-right: 4px; white-space: nowrap; }
+.toc a { font-size: .74rem; color: var(--ts); text-decoration: none; padding: 2px 8px; border-radius: 10px; border: 1px solid transparent; transition: all .15s; white-space: nowrap; }
+.toc a:hover { color: var(--cyan); border-color: rgba(0,212,255,.3); background: rgba(0,212,255,.08); }
+.toc-sep { color: var(--td); font-size: .7rem; }
+
+/* ── Main ── */
+main { max-width: 1200px; margin: 0 auto; padding: 40px 24px 80px; display: flex; flex-direction: column; gap: 52px; }
+
+/* ── Category Section ── */
+.cat-section {}
+.cat-header {
+  display: flex; align-items: flex-start; gap: 16px;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255,255,255,.07);
+}
+.cat-icon {
+  font-size: 1.8rem;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.cat-meta { flex: 1; }
+.cat-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: .03em;
+  margin-bottom: 8px;
+}
+.cat-desc {
+  font-size: .86rem;
+  color: var(--ts);
+  line-height: 1.75;
+}
+/* Per-category accent */
+.cat-ai    .cat-title { color: var(--cat1-b); }
+.cat-ai    .cat-header { border-bottom-color: rgba(0,212,255,.2); }
+.cat-bio   .cat-title { color: var(--cat2-b); }
+.cat-bio   .cat-header { border-bottom-color: rgba(0,229,160,.15); }
+.cat-fin   .cat-title { color: var(--cat3-b); }
+.cat-fin   .cat-header { border-bottom-color: rgba(192,132,252,.15); }
+.cat-life  .cat-title { color: var(--cat4-b); }
+.cat-life  .cat-header { border-bottom-color: rgba(251,191,36,.15); }
+.cat-art   .cat-title { color: var(--cat5-b); }
+.cat-art   .cat-header { border-bottom-color: rgba(248,113,113,.15); }
+
+.cat-sub {
+  font-size: .84rem;
+  color: var(--ts);
+  line-height: 1.8;
+  margin-top: 7px;
+}
+
+/* ── Grid ── */
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 18px; }
+
+/* ── Card ── */
+.card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; transition: transform .2s, box-shadow .2s, border-color .2s; }
+.card:hover { transform: translateY(-3px); box-shadow: 0 0 32px rgba(26,110,255,.18), 0 10px 30px rgba(0,0,0,.4); border-color: rgba(0,212,255,.4); }
+
+/* Category-tinted card borders on hover */
+.cat-bio  .card:hover { border-color: rgba(0,229,160,.4); box-shadow: 0 0 32px rgba(0,229,160,.1), 0 10px 30px rgba(0,0,0,.4); }
+.cat-fin  .card:hover { border-color: rgba(192,132,252,.4); box-shadow: 0 0 32px rgba(192,132,252,.1), 0 10px 30px rgba(0,0,0,.4); }
+.cat-life .card:hover { border-color: rgba(251,191,36,.4); box-shadow: 0 0 32px rgba(251,191,36,.08), 0 10px 30px rgba(0,0,0,.4); }
+.cat-art  .card:hover { border-color: rgba(248,113,113,.4); box-shadow: 0 0 32px rgba(248,113,113,.08), 0 10px 30px rgba(0,0,0,.4); }
+
+/* Card header gradient per category */
+.ch { padding: 14px 16px 12px; position: relative; overflow: hidden; }
+.ch::after { content: ""; position: absolute; top: -50%; right: -5%; width: 55%; height: 200%; background: linear-gradient(135deg, transparent, rgba(255,255,255,.06), transparent); transform: rotate(-20deg); pointer-events: none; }
+.cat-ai   .ch { background: linear-gradient(135deg, #0a3280 0%, #1a6eff 100%); }
+.cat-bio  .ch { background: linear-gradient(135deg, #064030 0%, #0f7a5a 100%); }
+.cat-fin  .ch { background: linear-gradient(135deg, #2e1065 0%, #6b21a8 100%); }
+.cat-life .ch { background: linear-gradient(135deg, #451a03 0%, #92400e 100%); }
+.cat-art  .ch { background: linear-gradient(135deg, #450a0a 0%, #991b1b 100%); }
+
+.ch-num { font-size: .65rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 3px; opacity: .75; color: var(--white); }
+.ch-name { font-size: 1.1rem; font-weight: 800; color: var(--white); line-height: 1.25; }
+.ch-tag { font-size: .78rem; color: rgba(255,255,255,.75); margin-top: 4px; line-height: 1.4; }
+.ch-links { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 9px; position: relative; }
+.ch-link { display: inline-flex; align-items: center; gap: 4px; font-size: .74rem; color: rgba(255,255,255,.85); text-decoration: none; border: 1px solid rgba(255,255,255,.28); border-radius: 4px; padding: 2px 8px; transition: background .15s; }
+.ch-link:hover { background: rgba(255,255,255,.15); color: var(--white); }
+
+.cb { padding: 13px 15px 16px; flex: 1; display: flex; flex-direction: column; gap: 10px; }
+.section-block { display: flex; flex-direction: column; gap: 4px; }
+.block-label { font-size: .65rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--b400); }
+.cat-bio  .block-label { color: #34d399; }
+.cat-fin  .block-label { color: #a78bfa; }
+.cat-life .block-label { color: #fcd34d; }
+.cat-art  .block-label { color: #fca5a5; }
+.block-text { font-size: .85rem; color: var(--ts); line-height: 1.65; }
+.tag-row { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 2px; }
+.tag { font-size: .68rem; font-weight: 600; background: rgba(26,110,255,.12); border: 1px solid rgba(26,110,255,.25); border-radius: 7px; padding: 2px 7px; color: var(--b300); }
+.cat-bio  .tag { background: rgba(0,229,160,.08); border-color: rgba(0,229,160,.2); color: #6ee7b7; }
+.cat-fin  .tag { background: rgba(192,132,252,.08); border-color: rgba(192,132,252,.2); color: #d8b4fe; }
+.cat-life .tag { background: rgba(251,191,36,.08); border-color: rgba(251,191,36,.2); color: #fde68a; }
+.cat-art  .tag { background: rgba(248,113,113,.08); border-color: rgba(248,113,113,.2); color: #fca5a5; }
+
+/* ── Directory ── */
+.dir-section {
+  background: rgba(6,20,64,.6);
+  border: 1px solid rgba(0,212,255,.2);
+  border-radius: 16px;
+  padding: 24px 20px 28px;
+  margin-bottom: 12px;
+}
+.dir-title {
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.dir-title::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: rgba(0,212,255,.2);
+}
+.dir-list { display: flex; flex-direction: column; gap: 6px; }
+.dir-cat-head {
+  font-size: .72rem;
+  font-weight: 800;
+  padding: 10px 10px 6px;
+  margin-top: 6px;
+}
+.dir-ai   .dir-cat-head { color: var(--cat1-b); }
+.dir-bio  .dir-cat-head { color: var(--cat2-b); }
+.dir-fin  .dir-cat-head { color: var(--cat3-b); }
+.dir-life .dir-cat-head { color: var(--cat4-b); }
+.dir-art  .dir-cat-head { color: var(--cat5-b); }
+
+.dir-item {
+  display: grid;
+  grid-template-columns: 26px 1fr;
+  grid-template-rows: auto auto;
+  column-gap: 10px;
+  text-decoration: none;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  transition: background .15s, border-color .15s;
+}
+.dir-item:hover {
+  background: rgba(255,255,255,.05);
+  border-color: rgba(255,255,255,.08);
+}
+.dir-num {
+  font-size: .68rem;
+  font-weight: 800;
+  color: var(--td);
+  grid-row: 1;
+  grid-column: 1;
+  padding-top: 2px;
+}
+.dir-name {
+  font-size: .9rem;
+  font-weight: 700;
+  color: var(--tm);
+  grid-row: 1;
+  grid-column: 2;
+  line-height: 1.3;
+}
+.dir-dot { display: none; }
+.dir-desc {
+  font-size: .78rem;
+  color: var(--td);
+  line-height: 1.4;
+  grid-row: 2;
+  grid-column: 2;
+  margin-top: 2px;
+}
+.dir-item:hover .dir-name { color: var(--cyan); }
+.dir-item:hover .dir-desc { color: var(--ts); }
+.dir-divider {
+  height: 1px;
+  background: rgba(255,255,255,.06);
+  margin: 4px 0;
+}
+
+footer { text-align: center; padding: 22px; font-size: .78rem; color: var(--td); border-top: 1px solid rgba(26,110,255,.12); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="header-eyebrow">第二届 · 2026 · New York</div>
+    <h1><span>光尘杯</span> 北美创新创业大赛</h1>
+    <p>Guangchen Cup · Uniques Cup · 创新为本 · 科技向善</p>
+    <div class="pills">
+      <span class="pill">14 个参赛项目</span>
+      <span class="pill">5 个赛道方向</span>
+      <span class="pill">2026 · 04 · 11</span>
+      <span class="pill">评审参考信息页</span>
+    </div>
+  </div>
+</header>
+
+<nav class="toc">
+  <span class="toc-label">赛道</span>
+  <a href="#cat-ai">🤖 AI 与智能工具</a>
+  <span class="toc-sep">·</span>
+  <a href="#cat-bio">🧬 生物医药与健康科技</a>
+  <span class="toc-sep">·</span>
+  <a href="#cat-fin">📈 金融科技与基础设施</a>
+  <span class="toc-sep">·</span>
+  <a href="#cat-life">🏠 线下服务与生活方式</a>
+  <span class="toc-sep">·</span>
+  <a href="#cat-art">🎨 艺术与创作者生态</a>
+  <span class="toc-sep" style="margin-left:8px">|</span>
+  <a href="#directory" style="color:var(--cyan);font-weight:700">☰ 目录</a>
+</nav>
+
+<main>
+
+  <!-- ══════════════════════════════════════════
+       项目导览目录
+  ══════════════════════════════════════════ -->
+  <section class="dir-section" id="directory">
+    <div class="dir-title">项目导览目录</div>
+    <div class="dir-list">
+
+      <!-- AI -->
+      <div class="dir-ai"><div class="dir-cat-head">🤖 AI 与智能工具方向</div></div>
+      <a class="dir-item" href="#p1"><span class="dir-num">#01</span><span class="dir-name">Q&amp;Q AI</span><span class="dir-dot">·</span><span class="dir-desc">自动化金融建模与估值系统</span></a>
+      <a class="dir-item" href="#p2"><span class="dir-num">#02</span><span class="dir-name">ahafrog 啊哈灵蛙</span><span class="dir-dot">·</span><span class="dir-desc">将学习资料转化为互动式游戏体验</span></a>
+      <a class="dir-item" href="#p3"><span class="dir-num">#03</span><span class="dir-name">Glowin</span><span class="dir-dot">·</span><span class="dir-desc">为线下门店提供 AI 电话代表与营销能力</span></a>
+      <a class="dir-item" href="#p5"><span class="dir-num">#05</span><span class="dir-name">Resonow</span><span class="dir-dot">·</span><span class="dir-desc">提供 AI 辅助心理咨询服务</span></a>
+      <a class="dir-item" href="#p6"><span class="dir-num">#06</span><span class="dir-name">Naviya</span><span class="dir-dot">·</span><span class="dir-desc">基于兴趣与位置生成城市实时行程</span></a>
+      <a class="dir-item" href="#p7"><span class="dir-num">#07</span><span class="dir-name">fAIshion.AI</span><span class="dir-dot">·</span><span class="dir-desc">融合 AI 试穿、多品牌搭配与社区交易</span></a>
+      <a class="dir-item" href="#p8"><span class="dir-num">#08</span><span class="dir-name">Sketch3D.ai</span><span class="dir-dot">·</span><span class="dir-desc">从草图生成 3D 场景并对接 Unity</span></a>
+      <a class="dir-item" href="#p11"><span class="dir-num">#11</span><span class="dir-name">ChefBear</span><span class="dir-dot">·</span><span class="dir-desc">帮助跨境用户理解菜单与点餐</span></a>
+
+      <div class="dir-divider"></div>
+
+      <!-- Bio -->
+      <div class="dir-bio"><div class="dir-cat-head">🧬 生物医药与健康科技方向</div></div>
+      <a class="dir-item" href="#p9"><span class="dir-num">#09</span><span class="dir-name">汉光生物</span><span class="dir-dot">·</span><span class="dir-desc">基于基因编辑与 iPSC 技术路径，探索病毒性疾病（如 HIV）根治方案</span></a>
+      <a class="dir-item" href="#p12"><span class="dir-num">#12</span><span class="dir-name">FormLab AI</span><span class="dir-dot">·</span><span class="dir-desc">通过手机视觉识别与动作分析，帮助用户优化训练动作、降低运动损伤风险</span></a>
+
+      <div class="dir-divider"></div>
+
+      <!-- Fin -->
+      <div class="dir-fin"><div class="dir-cat-head">📈 金融科技与基础设施方向</div></div>
+      <a class="dir-item" href="#p10"><span class="dir-num">#10</span><span class="dir-name">Fernwey</span><span class="dir-dot">·</span><span class="dir-desc">面向预测市场与机构投资者的事件驱动 Alpha 基础设施</span></a>
+      <a class="dir-item" href="#p13"><span class="dir-num">#13</span><span class="dir-name">Sustentra</span><span class="dir-dot">·</span><span class="dir-desc">AI 驱动的 ESG 审计平台，通过 OCR、NLP 与异常检测提升数据披露质量</span></a>
+
+      <div class="dir-divider"></div>
+
+      <!-- Life -->
+      <div class="dir-life"><div class="dir-cat-head">🏠 线下服务与生活方式方向</div></div>
+      <a class="dir-item" href="#p14"><span class="dir-num">#14</span><span class="dir-name">MUMU FurnCycle</span><span class="dir-dot">·</span><span class="dir-desc">面向学生与短住人群的家具循环与生活服务平台，已在纽约实现真实运营</span></a>
+
+      <div class="dir-divider"></div>
+
+      <!-- Art -->
+      <div class="dir-art"><div class="dir-cat-head">🎨 艺术与创作者生态方向</div></div>
+      <a class="dir-item" href="#p4"><span class="dir-num">#04</span><span class="dir-name">AGORA（汇艺）</span><span class="dir-dot">·</span><span class="dir-desc">以学生艺术家为核心用户，连接画廊、策展人与收藏资源</span></a>
+
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       赛道一：AI 与智能工具
+  ════════════════════════════════════════ -->
+  <section class="cat-section cat-ai" id="cat-ai">
+    <div class="cat-header">
+      <div class="cat-icon">🤖</div>
+      <div class="cat-meta">
+        <div class="cat-title">AI 与智能工具方向</div>
+      </div>
+    </div>
+    <div class="grid">
+
+      <!-- #1 Q&Q AI -->
+      <div class="card" id="p1">
+        <div class="ch">
+          <div class="ch-num">项目 #01</div>
+          <div class="ch-name">Q&amp;Q AI</div>
+          <div class="ch-tag">自动化金融建模与估值系统</div>
+          <div class="ch-links">
+            <a class="ch-link" href="https://drive.google.com/file/d/1_lyt8nPXQg8izqJUASnqy3C3mrCGtdln/view?usp=sharing" target="_blank" rel="noopener">📄 Pitch Deck</a>
+            <a class="ch-link" href="https://qandq.ai/" target="_blank" rel="noopener">🌐 qandq.ai</a>
+          </div>
+        </div>
+        <div class="cb">
+          <div class="section-block">
+            <div class="block-label">问题 Problem</div>
+            <div class="block-text">70% 的投资者估值工作依赖模型，但现有 Excel AI 工具存在三大痛点：缺乏可追溯性（无法说明 WACC 来源）、可审计性（无清晰叙事线）、自适应性（模板化，无法适配各团队建模习惯）。调研覆盖 178+ 家机构及零售投资者。</div>
+          </div>
+          <div class="section-block">
+            <div class="block-label">解决方案 Solution</div>
+            <div class="block-text">AI 原生估值终端，为卖方投行、买方机构（对冲基金、家族办公室）及高校提供可信赖、有叙事逻辑的财务模型构建工具。</div>
+          </div>
+          <div class="tag-row"><span class="tag">FinTech</span><span class="tag">AI Valuation</span><span class="tag">B2B + B2C</span></div>
+        </div>
+      </div>
+
+      <!-- #2 ahafrog -->
+      <div class="card" id="p2">
+        <div class="ch">
+          <div class="ch-num">项目 #02</div>
+          <div class="ch-name">ahafrog 啊哈灵蛙</div>
+          <div class="ch-tag">将学习资料转化为互动式游戏体验</div>
+          <div class="ch-links">
+            <a class="ch-link" href="https://drive.google.com/file/d/1YQYOH5Z6cRMvLu6_Bl9dt95tm6pEz24U/view?usp=sharing" target="_blank" rel="noopener">📄 Pitch Deck</a>
+          </div>
+        </div>
+        <div class="cb">
+          <div class="section-block">
+            <div class="block-label">问题 Problem</div>
+            <div class="block-text">传统在线学习完课率仅 5.5%，企业 e-learning 完课率 20%，全球每年数万亿教育投入流向效率最低的内容格式。核心矛盾：知识规模庞大，传递格式低效。</div>
+          </div>
+          <div class="section-block">
+            <div class="block-label">解决方案 Solution</div>
+            <div class="block-text">将教科书、论文、考研资料、IB 教材、企业培训手册一键转化为互动教育游戏。游戏化后完课率提升 36%+，参与度提升 48%+。SAM 超 5,200 亿元（2024）。</div>
+          </div>
+          <div class="tag-row"><span class="tag">EdTech</span><span class="tag">Gamification</span><span class="tag">AI Content</span></div>
+        </div>
+      </div>
+
+      <!-- #7 fAIshion -->
+      <div class="card" id="p7">
+        <div class="ch">
+          <div class="ch-num">项目 #07</div>
+          <div class="ch-name">fAIshion.AI</div>
+          <div class="ch-tag">融合 AI 试穿、多品牌搭配与社区交易</div>
+          <div class="ch-links">
+            <a class="ch-link" href="https://drive.google.com/file/d/1rDlhMXPNF4M5_P-jLRDawPBRJ_TG99cG/view?usp=sharing" target="_blank" rel="noopener">📄 Pitch Deck</a>
+          </div>
+        </div>
+        <div class="cb">
+          <div class="section-block">
+            <div class="block-label">问题 Problem</div>
+            <div class="block-text">消费者购买服装前无法直观感知完整穿搭效果，导致时尚电商退货率居高不下。现有工具只能看单件商品，缺乏场景化、搭配化的试穿体验。</div>
+          </div>
+          <div class="section-block">
+            <div class="block-label">解决方案 Solution</div>
+            <div class="block-text">AI 试穿 + 场景化穿搭：购买前即可在完整生活场景中预览多品牌搭配效果，融合灵感收藏与社区交易变现，瞄准万亿美元时尚电商市场。</div>
+          </div>
+          <div class="tag-row"><span class="tag">Fashion Tech</span><span class="tag">AI Try-On</span><span class="tag">E-Commerce</span></div>
+        </div>
+      </div>
+
+      <!-- #6 Naviya -->
+      <div class="card" id="p6">
+        <div class="ch">
+          <div class="ch-num">项目 #06</div>
+          <div class="ch-name">Naviya</div>
+          <div class="ch-tag">基于兴趣与位置生成城市实时行程</div>
+          <div class="ch-links">
+            <a class="ch-link" href="https://drive.google.com/file/d/1TygMxUK6e7cy58x7PM36onuAZL2xV_iT/view?usp=sharing" target="_blank" rel="noopener">📄 Pitch Deck</a>
+            <a class="ch-link" href="https://www.yi-universe.com" target="_blank" rel="noopener">🌐 yi-universe.com</a>
+          </div>
+        </div>
+        <div class="cb">
+          <div class="section-block">
+            <div class="block-label">问题 Problem</div>
+            <div class="block-text">短途城市旅行（2-3 天）旅行者无暇深度搜索，常常临时凑合或困在酒店。各城市本地活动分散于不同平台，旅行者几乎无从得知。</div>
+          </div>
+          <div class="section-block">
+            <div class="block-label">解决方案 Solution</div>
+            <div class="block-text">基于用户兴趣与实时位置生成城市行程，整合分散的本地活动信息，提供个性化、本地向导级的出行规划体验。</div>
+          </div>
+          <div class="tag-row"><span class="tag">Travel Tech</span><span class="tag">AI Itinerary</span><span class="tag">Local Events</span></div>
+        </div>
+      </div>
+
+      <!-- #3 Glowin -->
+      <div class="card" id="p3">
+        <div class="ch">
+          <div class="ch-num">项目 #03</div>
+          <div class="ch-name">Glowin</div>
+          <div class="ch-tag">为线下门店提供 AI 电话代表与营销能力</div>
+          <div class="ch-links">
+            <a class="ch-link" href="https://drive.google.com/file/d/1vzy8vHBxqHAk3jO2L40H9ykwHhhlxosZ/view?usp=drive_link" target="_blank" rel="noopener">📄 Pitch Deck</a>
+            <a class="ch-link" href="https://www.glowintech.com" target="_blank" rel="noopener">🌐 glowintech.com</a>
+          </div>
+        </div>
+        <div class="cb">
+          <div class="section-block">
+            <div class="block-label">问题 Problem</div>
+            <div class="block-text">本地服务门店单员工月成本 ~$4,000，替换成本 ~$5,800；排班混乱；营销外包费 $1,000–2,000/月且缺乏精准转化。门店运营依赖"人"而非"系统"。</div>
+          </div>
+          <div class="section-block">
+            <div class="block-label">解决方案 Solution</div>
+            <div class="block-text">以 AI 电话代表、AI 营销专家、AI 店长等角色重构门店核心岗位。已融资 $170K，当前 ARR $130K，目标 18 个月达 $6M ARR / 1,200+ 客户。</div>
+          </div>
+          <div class="tag-row"><span class="tag">AI SaaS</span><span class="tag">Local Business</span><span class="tag">ARR $130K</span></div>
+        </div>
+      </div>
+
+      <!-- #8 Sketch3D -->
+      <div class="card" id="p8">
+        <div class="ch">
+          <div class="ch-num">项目 #08</div>
+          <div class="ch-name">Sketch3D.ai</div>
+          <div class="ch-tag">从草图生成 3D 场景并对接 Unity</div>
+          <div class="ch-links">
+            <a class="ch-link" href="https://drive.google.com/file/d/1b7qQeNeD0ExIPY_xq9x_4OMA3FMHE3CF/view?usp=sharing" target="_blank" rel="noopener">📄 Pitch Deck</a>
+            <a class="ch-link" href="https://sketch3d.ai" target="_blank" rel="noopener">🌐 sketch3d.ai</a>
+          </div>
+        </div>
+        <div class="cb">
+          <div class="section-block">
+            <div class="block-label">问题 Problem</div>
+            <div class="block-text">游戏设计师需要快速原型验证创意，但等待美术资产需要数天，手动搭建 3D 场景耗时数小时，独立工作室缺乏高效工具。</div>
+          </div>
+          <div class="section-block">
+            <div class="block-label">解决方案 Solution</div>
+            <div class="block-text">从草图一键生成可交互 3D 场景，无需安装即可在浏览器内测试，一键导出至 Unity。已有 203 名注册用户。定价 Free → $29/月 → $129/月 → $1,600/月。TAM $87M。</div>
+          </div>
+          <div class="tag-row"><span class="tag">GameTech</span><span class="tag">3D AI</span><span class="tag">203 Users</span><span class="tag">TAM $87M</span></div>
+        </div>
+      </div>
+
+      <!-- #5 Resonow -->
+      <div class="card" id="p5">
+        <div class="ch">
+          <div class="ch-num">项目 #05</div>
+          <div class="ch-name">Resonow</div>
+          <div class="ch-tag">提供 AI 辅助心理咨询服务</div>
+          <div class="ch-links">
+            <a class="ch-link" href="https://drive.google.com/file/d/1PrIlAKGnMmBEIPjC06UgkHoG39pAhGbd/view?usp=sharing" target="_blank" rel="noopener">📄 Pitch Deck</a>
+            <a class="ch-link" href="https://www.resonow.org/" target="_blank" rel="noopener">🌐 resonow.org</a>
+          </div>
+        </div>
+        <div class="cb">
+          <div class="section-block">
+            <div class="block-label">问题 Problem</div>
+            <div class="block-text">心理咨询三大痛点：① 高流失率——咨询师只倾听不给建议；② 资质混乱——15+ 专业头衔令用户困惑；③ 信任赤字——多次更换咨询师仍无改善。</div>
+          </div>
+          <div class="section-block">
+            <div class="block-label">解决方案 Solution</div>
+            <div class="block-text">AI 辅助的全流程心理健康服务平台，帮助用户精准匹配咨询师并持续追踪效果。覆盖海外网站与国内微信小程序双渠道。</div>
+          </div>
+          <div class="tag-row"><span class="tag">Mental Health</span><span class="tag">AI Matching</span><span class="tag">CN + US</span></div>
+        </div>
+      </div>
+
+      <!-- #11 ChefBear -->
+      <div class="card" id="p11">
+        <div class="ch">
+          <div class="ch-num">项目 #11</div>
+          <div class="ch-name">ChefBear</div>
+          <div class="ch-tag">帮助跨境用户理解菜单与点餐</div>
+          <div class="ch-links">
+            <a class="ch-link" href="https://raycarllei.github.io/ChefBearSupport/pitch/" target="_blank" rel="noopener">📄 Pitch Slide</a>
+          </div>
+        </div>
+        <div class="cb">
+          <div class="section-block">
+            <div class="block-label">问题 Problem</div>
+            <div class="block-text">全球每年 15.2 亿国际游客在海外就餐时看不懂外语菜单、无菜品图片、不了解陌生菜系。Google 翻译仅做字面转换，无法解决点餐决策困境。</div>
+          </div>
+          <div class="section-block">
+            <div class="block-label">解决方案 Solution</div>
+            <div class="block-text">拍下菜单，AI 五步流程：OCR → 结构化提取 → AI 生成菜品图 → 多语言翻译 → 个性化推荐。已上线 iOS App Store。B2B 端向餐厅提供二维码菜单托管（$29/月）。Columbia CS/CBS 团队。</div>
+          </div>
+          <div class="tag-row"><span class="tag">FoodTech</span><span class="tag">AI + OCR</span><span class="tag">Travel</span><span class="tag">iOS Live</span></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       赛道二：生物医药与健康科技
+  ════════════════════════════════════════ -->
+  <section class="cat-section cat-bio" id="cat-bio">
+    <div class="cat-header">
+      <div class="cat-icon">🧬</div>
+      <div class="cat-meta">
+        <div class="cat-title">生物医药与健康科技方向</div>
+      </div>
+    </div>
+    <div class="grid">
+
+      <!-- #9 汉光生物 -->
+      <div class="card" id="p9">
+        <div class="ch">
+          <div class="ch-num">项目 #09</div>
+          <div class="ch-name">汉光生物 · SinoShine BioTherapeutics</div>
+          <div class="ch-tag">基于基因编辑与 iPSC 技术路径，探索病毒性疾病（如 HIV）根治方案的研究型项目</div>
+          <div class="ch-links">
+            <a class="ch-link" href="https://drive.google.com/file/d/1TaOD_T13g185Ew1lAnhuygQRGTv8mMUA/view?usp=sharing" target="_blank" rel="noopener">📄 Pitch Deck</a>
+          </div>
+        </div>
+        <div class="cb">
+          <div class="section-block">
+            <div class="block-label">问题 Problem</div>
+            <div class="block-text">HIV 整合入宿主基因组形成潜伏病毒库，传统药物无法根治；乙肝 cccDNA 持续存在于肝细胞核内；HPV 持续感染（中国约 2,000–2,300 万高危女性）缺乏根治手段。</div>
+          </div>
+          <div class="section-block">
+            <div class="block-label">解决方案 Solution</div>
+            <div class="block-text">基于基因编辑与 iPSC 技术路径，靶向清除潜伏病毒库，覆盖 HIV、乙肝、HPV 三大市场。创始人李关汉博士：NIH/NCI 高级资深研究员，洛克菲勒大学、约翰霍普金斯博士后背景。</div>
+          </div>
+          <div class="tag-row"><span class="tag">Biotech</span><span class="tag">Gene Editing</span><span class="tag">iPSC</span><span class="tag">HIV · HBV · HPV</span></div>
+        </div>
+      </div>
+
+      <!-- #12 FormLab AI -->
+      <div class="card" id="p12">
+        <div class="ch">
+          <div class="ch-num">项目 #12</div>
+          <div class="ch-name">FormLab AI</div>
+          <div class="ch-tag">通过手机视觉识别与动作分析，帮助用户优化训练动作、降低运动损伤风险</div>
+          <div class="ch-links">
+            <a class="ch-link" href="https://drive.google.com/file/d/1x7d4c35mGN93BaD_mPYkJZ-3cqNlFnkd/view?usp=sharing" target="_blank" rel="noopener">📄 Pitch Deck</a>
+          </div>
+        </div>
+        <div class="cb">
+          <div class="section-block">
+            <div class="block-label">问题 Problem</div>
+            <div class="block-text">美国 7,700 万健身房会员大多靠镜子或朋友自我纠正动作，专业私教 $40–70/小时；YouTube 教程和泛化 App 只提供内容，无法针对个人动作实时纠正，运动损伤风险高。</div>
+          </div>
+          <div class="section-block">
+            <div class="block-label">解决方案 Solution</div>
+            <div class="block-text">用手机摄像头进行视觉识别与动作分析，提供专业级力量训练反馈，降低动作错误与运动损伤风险。AI 计算机视觉已可在移动端实时运行。市场规模 $4.71B（2025）。</div>
+          </div>
+          <div class="tag-row"><span class="tag">FitTech</span><span class="tag">Computer Vision</span><span class="tag">Injury Prevention</span><span class="tag">$4.71B Market</span></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       赛道三：金融科技与基础设施
+  ════════════════════════════════════════ -->
+  <section class="cat-section cat-fin" id="cat-fin">
+    <div class="cat-header">
+      <div class="cat-icon">📈</div>
+      <div class="cat-meta">
+        <div class="cat-title">金融科技与基础设施方向</div>
+      </div>
+    </div>
+    <div class="grid">
+
+      <!-- #10 Fernwey -->
+      <div class="card" id="p10">
+        <div class="ch">
+          <div class="ch-num">项目 #10</div>
+          <div class="ch-name">Fernwey</div>
+          <div class="ch-tag">面向预测市场与机构投资者的事件驱动 Alpha 基础设施，覆盖数据整合、量化执行与自动化交易能力</div>
+          <div class="ch-links">
+            <a class="ch-link" href="https://drive.google.com/file/d/117yhmgGcpxSNYGbJUs6DwgNXZAOKep6t/view?usp=sharing" target="_blank" rel="noopener">📄 Pitch Deck</a>
+            <a class="ch-link" href="https://fernwey.ai" target="_blank" rel="noopener">🌐 fernwey.ai</a>
+          </div>
+        </div>
+        <div class="cb">
+          <div class="section-block">
+            <div class="block-label">问题 Problem</div>
+            <div class="block-text">预测市场爆发（$100B+ 预计 2026 年规模），但交易基础设施几乎空白：新闻-市场映射延迟 30+ 分钟、无 PM 专属执行引擎、无 Trade Blotter、无二元资产回测框架、无跨平台套利工具。</div>
+          </div>
+          <div class="section-block">
+            <div class="block-label">解决方案 Solution</div>
+            <div class="block-text">事件驱动 Alpha 基础设施：新闻信号捕捉 → 跨平台套利识别 → 自动化执行 → Blotter + 回测。以 Fernwey Capital 自营 PM 基金实盘验证。PreSeed，Pre-money ¥12M。</div>
+          </div>
+          <div class="tag-row"><span class="tag">FinTech</span><span class="tag">Prediction Markets</span><span class="tag">Quant Trading</span><span class="tag">PreSeed</span></div>
+        </div>
+      </div>
+
+      <!-- #13 Sustentra -->
+      <div class="card" id="p13">
+        <div class="ch">
+          <div class="ch-num">项目 #13</div>
+          <div class="ch-name">Sustentra</div>
+          <div class="ch-tag">AI 驱动的 ESG 审计平台，通过 OCR、NLP 与异常检测提升企业数据披露质量与风险识别能力</div>
+          <div class="ch-links">
+            <a class="ch-link" href="https://drive.google.com/file/d/1gmdOMBlXjH1sc7DKApOk16CCOORXMvq3/view?usp=sharing" target="_blank" rel="noopener">📄 Pitch Deck</a>
+          </div>
+        </div>
+        <div class="cb">
+          <div class="section-block">
+            <div class="block-label">问题 Problem</div>
+            <div class="block-text">碳排放监管覆盖全球 58% GDP，违规最高罚款 €380K+/笔、$500K+/案，但现有流程靠散乱 PDF + 手动 Excel，每年浪费 $250K+ 咨询费，耗时 18–24 个月仍无法达到审计标准。</div>
+          </div>
+          <div class="section-block">
+            <div class="block-label">解决方案 Solution</div>
+            <div class="block-text">AI 驱动的 ESG 审计平台，通过 OCR、NLP 与异常检测将散乱供应商数据自动转化为可审计的结构化证据链，提升数据披露质量与合规风险识别。可持续性保证市场预计 2031 年达 $5.43B。</div>
+          </div>
+          <div class="tag-row"><span class="tag">ESG / CleanTech</span><span class="tag">AI Audit</span><span class="tag">OCR + NLP</span><span class="tag">$100B Market</span></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       赛道四：线下服务与生活方式
+  ════════════════════════════════════════ -->
+  <section class="cat-section cat-life" id="cat-life">
+    <div class="cat-header">
+      <div class="cat-icon">🏠</div>
+      <div class="cat-meta">
+        <div class="cat-title">线下服务与生活方式方向</div>
+      </div>
+    </div>
+    <div class="grid">
+
+      <!-- #14 MUMU FurnCycle -->
+      <div class="card" id="p14">
+        <div class="ch">
+          <div class="ch-num">项目 #14</div>
+          <div class="ch-name">MUMU FurnCycle</div>
+          <div class="ch-tag">面向学生与短住人群的家具循环与生活服务平台，整合搬运、清洁、仓储与空间搭建服务，目前已在纽约实现真实运营与用户验证</div>
+          <div class="ch-links">
+            <a class="ch-link" href="https://drive.google.com/file/d/190CDek019wymvd0HGuzDma0eQ5sPWmgQ/view?usp=sharing" target="_blank" rel="noopener">📄 Pitch Deck</a>
+            <a class="ch-link" href="https://www.mumufurncycle.com" target="_blank" rel="noopener">🌐 mumufurncycle.com</a>
+          </div>
+        </div>
+        <div class="cb">
+          <div class="section-block">
+            <div class="block-label">问题 Problem</div>
+            <div class="block-text">城市大学城每年毕业季产生大量一次性家具消费，毕业生需快速处置，新生需要实惠即用的基础家具，二者需求天然匹配却缺乏高效对接。</div>
+          </div>
+          <div class="section-block">
+            <div class="block-label">解决方案 Solution</div>
+            <div class="block-text">整合搬运、清洁、仓储与空间搭建的家具循环利用平台，构建学生搬迁场景下的闭环循环经济。目前已在纽约实现真实运营与用户验证。Gloria Yu · qy247@cornell.edu</div>
+          </div>
+          <div class="tag-row"><span class="tag">Circular Economy</span><span class="tag">Student Market</span><span class="tag">NYC Live</span><span class="tag">Sustainability</span></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       赛道五：艺术与创作者生态
+  ════════════════════════════════════════ -->
+  <section class="cat-section cat-art" id="cat-art">
+    <div class="cat-header">
+      <div class="cat-icon">🎨</div>
+      <div class="cat-meta">
+        <div class="cat-title">艺术与创作者生态方向</div>
+      </div>
+    </div>
+    <div class="grid">
+
+      <!-- #4 AGORA -->
+      <div class="card" id="p4">
+        <div class="ch">
+          <div class="ch-num">项目 #04</div>
+          <div class="ch-name">AGORA（汇艺）</div>
+          <div class="ch-tag">以学生艺术家为核心用户，连接画廊、策展人与收藏资源，帮助创作者获得流量与商业转化路径</div>
+          <div class="ch-links">
+            <a class="ch-link" href="https://drive.google.com/file/d/1zGwXwwrDlEkXBdx-lXDccBJSQDZmKQVY/view?usp=sharing" target="_blank" rel="noopener">📄 Pitch Deck</a>
+          </div>
+        </div>
+        <div class="cb">
+          <div class="section-block">
+            <div class="block-label">问题 Problem</div>
+            <div class="block-text">学生艺术家缺乏稳定曝光渠道，只能依赖算法；收藏家想投资年轻艺术家却缺乏合适渠道；城市买家想表达个人审美但成熟艺术家画作超出预算。</div>
+          </div>
+          <div class="section-block">
+            <div class="block-label">解决方案 Solution</div>
+            <div class="block-text">以线上平台为主、线下展览为辅，连接学生艺术家与画廊、策展人、收藏家，提供作品交易、多渠道展示、3D/VR 展示与 AI 搭载搜索，帮助创作者实现流量与商业转化。</div>
+          </div>
+          <div class="tag-row"><span class="tag">Art Platform</span><span class="tag">Creator Economy</span><span class="tag">Student Artists</span><span class="tag">3D / VR</span></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  光尘杯北美创新创业大赛 2026 · Guangchen Cup · 评审参考信息页
+</footer>
+
+</body>
+</html>
